@@ -18,19 +18,26 @@ steps:
 
   - name: apply ansible playbook for deploy
     image: plugins/ansible
-    # secrets: [ SSH_PRIVATE_KEY_STAGING ]
+    secrets: [ SSH_PRIVATE_KEY_STAGING ]
     settings:
       playbook: .ansible/playbook.yml
       inventory: .ansible/inventory
-      # private_key: $SSH_PRIVATE_KEY_STAGING
-      private_key:
-        from_secret: ansible_private_key
+      private_key: SSH_PRIVATE_KEY_STAGING
+      # private_key:
+      #   from_secret: ansible_private_key
       verbose: 4
     # when:
     #   event:
     #   - dev
 
----
-kind: secret
-name: ansible_private_key
-data: SSH_PRIVATE_KEY_STAGING
+# ---
+# kind: secret
+# name: ansible_private_key
+# data: SSH_PRIVATE_KEY_STAGING
+
+# ---
+# kind: secret
+# data:
+#   ansible_private_key: SSH_PRIVATE_KEY_STAGING
+
+
