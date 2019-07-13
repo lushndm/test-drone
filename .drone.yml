@@ -34,4 +34,4 @@ steps:
 kind: secret
 
 data:
-  ansible_private_key: SSH_PRIVATE_KEY_STAGING
+  - ansible_private_key: SSH_PRIVATE_KEY_STAGING
