@@ -1,0 +1,32 @@
+- name: Deploy dev on Staging
+  hosts: inst
+  gather_facts: no
+  tasks:
+    # - name: Clone repo
+    #   git:
+    #     repo: git@github.com:lushndm/test-drone.git
+    #     dest: /var/www/test-drone
+    #     update: yes
+    #     version: dev
+
+    - name: Recreate services
+      docker_compose:
+        project_src: /var/www/test-drone
+        services:
+          - nginx
+          # - redis
+          # - postgres
+          # - rabbitmq
+          # - minio
+        recreate: always
+        dependencies: no
+        pull: yes
+      register: output
+
+    - debug:
+        var: output
+
+    # - assert:
+        # that:
+          # - "billing-service-cancel-payment-worker.cancel_payment_worker.state.running"
+          # - "postgres.postgres.state.running"

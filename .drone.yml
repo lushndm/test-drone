@@ -2,15 +2,33 @@ kind: pipeline
 name: default
 
 steps:
-- name: frontend
-  image: node
-  commands:
-  - npm install
-  - npm test
 
-- name: backend
-  image: golang
-  commands:
-  - go build
-  - go test
+  - name: check ansible playbook syntax for deploy
+    image: plugins/ansible
+    environment:
+    secrets: [ SSH_PRIVATE_KEY_STAGING ]
+    settings:
+      playbook: .ansible/playbook.yml
+      inventory: .ansible/inventory
+      private_key: $SSH_PRIVATE_KEY_STAGING
+      syntax_check: true
+    when:
+      event:
+      - dev
 
+  - name: apply ansible playbook for deploy
+    image: plugins/ansible
+    secrets: [ SSH_PRIVATE_KEY_STAGING ]
+    settings:
+      playbook: .ansible/playbook.yml
+      inventory: .ansible/inventory
+      private_key: $SSH_PRIVATE_KEY_STAGING
+    when:
+      event:
+      - dev
+
+# ---
+# kind: secret
+
+# data:
+#   ansible_private_key: SSH_PRIVATE_KEY_STAGING
