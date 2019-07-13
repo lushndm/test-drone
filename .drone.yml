@@ -23,6 +23,7 @@ steps:
       playbook: .ansible/playbook.yml
       inventory: .ansible/inventory
       private_key: $SSH_PRIVATE_KEY_STAGING
+      verbose: 4
     # when:
     #   event:
     #   - dev
