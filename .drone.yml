@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: testing deploy
 
 steps:
 
@@ -12,9 +12,9 @@ steps:
       inventory: .ansible/inventory
       private_key: $SSH_PRIVATE_KEY_STAGING
       syntax_check: true
-    when:
-      event:
-      - dev
+    # when:
+    #   event:
+    #   - dev
 
   - name: apply ansible playbook for deploy
     image: plugins/ansible
@@ -23,9 +23,9 @@ steps:
       playbook: .ansible/playbook.yml
       inventory: .ansible/inventory
       private_key: $SSH_PRIVATE_KEY_STAGING
-    when:
-      event:
-      - dev
+    # when:
+    #   event:
+    #   - dev
 
 # ---
 # kind: secret
