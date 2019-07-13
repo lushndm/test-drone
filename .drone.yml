@@ -24,7 +24,7 @@ steps:
       playbook: .ansible/playbook.yml
       inventory: .ansible/inventory
       # private_key: $SSH_PRIVATE_KEY_STAGING
-      private_key: ansible_private_key
+      private_key: $ansible_private_key
       # private_key:
         # from_secret: ansible_private_key
       # ssh_common_args: '-o StrictHostKeyChecking=no'
