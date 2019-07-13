@@ -25,6 +25,7 @@ steps:
       # private_key: SSH_PRIVATE_KEY_STAGING
       private_key:
         from_secret: ansible_private_key
+      # ssh_common_args: '-o StrictHostKeyChecking=no'
       verbose: 4
     # when:
     #   event:
