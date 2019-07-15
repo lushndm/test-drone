@@ -11,7 +11,7 @@
 
     - name: Printing the environment​ variable in Ansible
       debug:
-        msg: "{{ lookup('env','HOME','host_ip','host_ip2') }}"
+        msg: "{{ lookup('env','USER','HOME','SHELL','host_ip','host_ip2') }}"
 
     - name: Recreate services
       docker_compose:
