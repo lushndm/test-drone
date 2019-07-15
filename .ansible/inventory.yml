@@ -7,5 +7,5 @@ all:
         staging:
           ansible_host: 138.201.221.95
         instance-2:
-          ansible_host: $HOST_IP
+          ansible_host: $host_ip
           ansible_user: root
