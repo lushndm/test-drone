@@ -1,5 +1,5 @@
 - name: Deploy dev on Staging
-  hosts: inst
+  hosts: instance-2
   gather_facts: no
   tasks:
     # - name: Clone repo

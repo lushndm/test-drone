@@ -1,0 +1,11 @@
+all:
+  hosts:
+    # mail.example.com:
+  children:
+    stage:
+      hosts:
+        staging:
+          ansible_host: 138.201.221.95
+        instance-2:
+          ansible_host: $HOST_IP
+          ansible_user: root

@@ -23,7 +23,7 @@ steps:
         from_secret: HOST_IP
     settings:
       playbook: .ansible/playbook.yml
-      inventory: .ansible/inventory
+      inventory: .ansible/inventory.yml
       private_key:
         from_secret: ansible_private_key
       # ssh_common_args: '-o StrictHostKeyChecking=no'
