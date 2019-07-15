@@ -9,6 +9,10 @@
     #     update: yes
     #     version: dev
 
+    - name: Printing the environment​ variable in Ansible
+      debug:
+        msg: "{{ lookup('env','HOME','host_ip') }}"
+
     - name: Recreate services
       docker_compose:
         project_src: /var/www/test-drone
