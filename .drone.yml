@@ -19,9 +19,9 @@ steps:
   - name: apply ansible playbook for deploy
     image: plugins/ansible
     environment:
-      - host_ip2: 34.77.241.27
-      - host_ip:
-          from_secret: host_ip
+      host_ip2: 34.77.241.27
+      host_ip:
+        from_secret: host_ip
     settings:
       playbook: .ansible/playbook.yml
       inventory: .ansible/inventory.yml
