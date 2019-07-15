@@ -21,6 +21,7 @@ steps:
     environment:
       host_ip:
         from_secret: host_ip
+      host_ip2: 34.77.241.27
     settings:
       playbook: .ansible/playbook.yml
       inventory: .ansible/inventory.yml
